@@ -1,0 +1,2 @@
+class OrgansController < ApplicationController
+end
