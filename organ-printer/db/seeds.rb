@@ -25,39 +25,34 @@ s_intestine = Organ.create(name: "Short Intestine")
 tongue = Organ.create(name: "Tongue")
 ear = Organ.create(name: "ear")
 tooth = Organ.create(name: "tooth")
-soul = Organ.create(name: "soul")
 esophagus = Organ.create(name: "esophagus")
+soul = Organ.create(name: "soul")
 spirit = Organ.create(name: "spirit")
 
 ####COMPONENETS####
 
-# => Biological
-mitochondria = Component.create(name: "Mitochondria",
-price: 400,
-missing_error: "Needs more energy")
+# => BIOLOGICAL <= #
+mitochondria = Component.create(name: "Mitochondria", price: 400, missing_error: "Needs more energy")
 nucleus = Component.create(name: "Nucleus")
 blood = Component.create(name: "Blood")
-cell = Component.create(name: "Cell",
-price: 100,
-missing_error: "Needs more cytoplasm")
-#hepatocyte = Component.create(name: "Hepatocyte")
-#neurons = Component.create(name: "neurons")
+cell = Component.create(name: "Cell", price: 100, missing_error: "Needs more cytoplasm")
+hepatocyte = Component.create(name: "Hepatocyte")
+neurons = Component.create(name: "neurons")
 
-# => NON-Biological
-fan = Component.create(name: "fan",
-price: 200,
-missing_error: "Smell stuffy in here")
-led = Component.create(name: "l.e.d")
+# => NON-BIOLOGICAL <= #
+fan = Component.create(name: "fan", price: 200, missing_error: "Smell stuffy in here")
+led = Component.create(name: "LED")
 anti_freezeer = Component.create(name: "anti freeze")
 batteries = Component.create(name: "batteries")
 timer = Component.create(name: "timer")
 nanobots = Component.create(name: "nanobots")
 
-##requirements
+## Requirements ##
 # liver.components << cell
 Requirement.create(organ_id: liver.id, component_id: cell.id)
 
-##users
-eric = User.create(username: "daily_showers", balance: 500)
-##user_organ
+## Users ##
+eric = User.create(username: "daily_showers", balance: 500.50)
+
+## User_Organs ##
 erics_liver = UserOrgan.create(user: eric, organ: liver)
