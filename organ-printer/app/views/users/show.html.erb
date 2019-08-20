@@ -1,5 +1,5 @@
-<h1><%= "Welcome, #{@user.username}, your balance is #{@user.balance}" %></h1>
+<h1><%= "Welcome, #{@user.username}, your balance is $#{@user.balance}" %></h1>
 
-<%= button_to "Build an Organ", new_user_organ_path, method: :get %>
+<%= button_to "Build an Organ", "/users/#{@user.id}/user_organs/new", method: :get %>
 
 <%= button_to "View Stock", "/users/#{@user.id}/organs", method: :get %>

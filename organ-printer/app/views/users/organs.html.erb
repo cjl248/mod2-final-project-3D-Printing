@@ -1,7 +1,14 @@
-<%= "#{@user.username}, your organs are: " %>
-
 <% if @organs %>
-<% @organs.each do |organ| %>
-<ul><li><%= organ.name %></li></ul>
-<% end %>
+
+  <%= "#{@user.username}, your organs are: " %>
+    <ul>
+    <% @organs.each do |organ| %>
+      <li><%= organ.name %></li>
+      <% end %>
+    </ul>
+
+<% else %>
+
+  <%= "#{@user.username}, you don't have any organs yet." %>
+
 <% end %>

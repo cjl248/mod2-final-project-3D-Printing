@@ -13,4 +13,5 @@ class UserOrgansController < ApplicationController
     @user_organ.compare_ids(selected_components)
     # flash[:errors] = @userOrgan.compare_ids(params[:])
   end
+
 end

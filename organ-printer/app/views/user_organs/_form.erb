@@ -1,0 +1,10 @@
+<%= form_for @user_organ do |f| %>
+
+  <%= f.label :organ %>
+  <%= f.collection_select :organ_id, @organs, :id, :name %>
+
+  <%= f.label :components %>
+  <%= f.collection_check_boxes :component_id, @components, :id, :name %>
+
+  <% end %>
+  

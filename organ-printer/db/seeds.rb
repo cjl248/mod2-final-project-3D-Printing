@@ -29,16 +29,14 @@ s_intestine = Organ.create(name: "Short Intestine")
 tongue = Organ.create(name: "Tongue")
 ear = Organ.create(name: "ear")
 tooth = Organ.create(name: "tooth")
-soul = Organ.create(name: "soul")
 esophagus = Organ.create(name: "esophagus")
+soul = Organ.create(name: "soul")
 spirit = Organ.create(name: "spirit")
 
 ####COMPONENETS####
 
-# => Biological
-mitochondria = Component.create(name: "Mitochondria",
-price: 400,
-missing_error: "Needs more energy")
+# => BIOLOGICAL <= #
+mitochondria = Component.create(name: "Mitochondria", price: 400, missing_error: "Needs more energy")
 nucleus = Component.create(name: "Nucleus")
 blood = Component.create(name: "Blood")
 cell = Component.create(name: "Cell",
@@ -59,10 +57,14 @@ batteries = Component.create(name: "batteries")
 timer = Component.create(name: "timer")
 nanobots = Component.create(name: "nanobots")
 
+
 ##requirements
 liver.components << [cell, fan, led]
 # Requirement.create(organ_id: liver.id, component_id: cell.id)
-##users
-eric = User.create(username: "daily_showers", balance: 500)
-##user_organ
+
+## Users ##
+eric = User.create(username: "daily_showers", balance: 500.50)
+
+## User_Organs ##
+
 erics_liver = UserOrgan.create(user: eric, organ: liver)
