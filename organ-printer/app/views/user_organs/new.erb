@@ -1,0 +1,12 @@
+<h1>Organ Printer</h1>
+<h3>Print a new organ by selecting the correct combination of components</h3>
+
+<%= form_for @user_organ do |f| %>
+
+  <%= f.label :organ_id %>
+  <%= f.collection_select :organ_id, @organs, :id, :name %>
+
+  <%= f.collection_check_boxes :component_ids, @components, :id, :name %>
+  
+  <%= f.submit %>
+<% end %>

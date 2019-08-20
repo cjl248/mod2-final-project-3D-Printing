@@ -6,9 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Organ.destroy_all
-# Component.destroy_all
-# Requirement.destroy_all
+#fixed this by adding dependent destroy in the relevent places
+Organ.destroy_all
+Component.destroy_all
+User.destroy_all
+UserOrgan.destroy_all
+Requirement.destroy_all
+
 
 #### ORGANS ####
 #(held over ice...)#
@@ -47,16 +51,17 @@ missing_error: "Needs more cytoplasm")
 fan = Component.create(name: "fan",
 price: 200,
 missing_error: "Smell stuffy in here")
-led = Component.create(name: "l.e.d")
+led = Component.create(name: "l.e.d",
+price: 100,
+missing_error: "Too dark to see")
 anti_freezeer = Component.create(name: "anti freeze")
 batteries = Component.create(name: "batteries")
 timer = Component.create(name: "timer")
 nanobots = Component.create(name: "nanobots")
 
 ##requirements
-# liver.components << cell
-Requirement.create(organ_id: liver.id, component_id: cell.id)
-
+liver.components << [cell, fan, led]
+# Requirement.create(organ_id: liver.id, component_id: cell.id)
 ##users
 eric = User.create(username: "daily_showers", balance: 500)
 ##user_organ
