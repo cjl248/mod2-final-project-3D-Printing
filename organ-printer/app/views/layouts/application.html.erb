@@ -22,7 +22,6 @@
         <%= button_to 'Profile', @current_user, method: :get %>
 
       <% else %>
-        <%# link_to "Home", "/colors" %>
         <%= button_to "Login", "/login", method: :get %>
         <%= button_to "Register", new_user_path, method: :get %>
 

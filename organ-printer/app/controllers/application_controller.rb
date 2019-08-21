@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
+    #unless is like if !(condition)
     unless @logged_in
       flash[:message] = "Please login to view this page"
       return redirect_to login_path

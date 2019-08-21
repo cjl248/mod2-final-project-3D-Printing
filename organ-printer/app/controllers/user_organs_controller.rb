@@ -5,10 +5,10 @@ class UserOrgansController < ApplicationController
   end
 
   def new
-    @user_organ = UserOrgan.new(flash[:user_org_hash])
-    @organs = Organ.all
-    @components = Component.all
-    @selected_components = flash[:array] || []
+      @user_organ = UserOrgan.new(flash[:user_org_hash])
+      @organs = Organ.all
+      @components = Component.all
+      @selected_components = flash[:array] || []
   end
 
   def create
