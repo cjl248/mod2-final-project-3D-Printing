@@ -1,5 +1,10 @@
 class UserOrgansController < ApplicationController
 
+  def index
+    @user = User.find(params[:id])
+    @organs = @user.organs
+  end
+
   def new
     @user_organ = UserOrgan.new
     @organs = Organ.all

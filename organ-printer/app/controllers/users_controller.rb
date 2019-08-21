@@ -5,15 +5,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new()
   end
 
   def create
     @user = User.create(user_params)
     if @user.valid?
-
+      @user.update(balance: 500.0)
+      flash[:messages] = "Created #{@user.username}"
+      redirect_to @user
     else
-      
+      flash[:messages] = "You messed up."
+      redirect_to new_user_path
     end
   end
 

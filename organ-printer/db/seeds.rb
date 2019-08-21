@@ -63,7 +63,7 @@ liver.components << [cell, fan, led]
 # Requirement.create(organ_id: liver.id, component_id: cell.id)
 
 ## Users ##
-eric = User.create(username: "daily_showers", balance: 500.50)
+eric = User.create(username: "daily_showers", password: "abc", balance: 500.55)
 
 ## User_Organs ##
 
