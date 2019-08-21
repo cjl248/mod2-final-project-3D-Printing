@@ -1,12 +1,24 @@
 <h1>Organ Printer</h1>
+
+<% if flash[:error] != nil %>
+    <font color="RED"><marquee BGCOLOR=YELLOW><%= flash[:error] %></marquee></font>
+<% end %>
+
+
 <h3>Print a new organ by selecting the correct combination of components</h3>
 
 <%= form_for @user_organ, url: {action: "create"} do |f| %>
 
   <%= f.label :organ_id %>
-  <%= f.collection_select :organ_id, @organs, :id, :name %>
+  <%= f.collection_select :organ_id, @organs, :id, :name %><br>
 
-  <%= f.collection_check_boxes :component_ids, @components, :id, :name %>
+  <%= f.label "Components:" %>
+
+  <% @components.each do |component| %>
+  <br>
+    <%= label_tag component.name %>
+    <%= check_box_tag "components[]", component.id, @selected_components.include?(component.id.to_s) %>
+  <% end %>
 
   <%= f.submit %>
 

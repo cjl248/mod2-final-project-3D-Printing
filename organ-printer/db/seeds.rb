@@ -16,53 +16,90 @@ Requirement.destroy_all
 
 #### ORGANS ####
 #(held over ice...)#
-liver = Organ.create(name: "Liver")
-lung = Organ.create(name: "Lung")
-heart = Organ.create(name: "Heart")
-brain = Organ.create(name: "Brain")
-skin = Organ.create(name: "Skin")
-kidney = Organ.create(name: "Kidney")
-eye = Organ.create(name: "Eye")
-stomache = Organ.create(name: "Stomache")
-l_intestine = Organ.create(name: "Long Intestine")
-s_intestine = Organ.create(name: "Short Intestine")
-tongue = Organ.create(name: "Tongue")
-ear = Organ.create(name: "ear")
-tooth = Organ.create(name: "tooth")
-esophagus = Organ.create(name: "esophagus")
-soul = Organ.create(name: "soul")
-spirit = Organ.create(name: "spirit")
+liver = Organ.create(name: "Liver",
+minimum_component_count: 5)
+lung = Organ.create(name: "Lung",
+minimum_component_count: 3)
+heart = Organ.create(name: "Heart",
+minimum_component_count: 3)
+brain = Organ.create(name: "Brain",
+minimum_component_count: 8)
+skin = Organ.create(name: "Skin",
+minimum_component_count: 6)
+eye = Organ.create(name: "Eye",
+minimum_component_count: 7)
+stomache = Organ.create(name: "Stomach",
+minimum_component_count: 3)
+tongue = Organ.create(name: "Tongue",
+minimum_component_count: 3)
+ear = Organ.create(name: "ear",
+minimum_component_count: 8)
+tooth = Organ.create(name: "tooth",
+minimum_component_count: 2)
+esophagus = Organ.create(name: "esophagus",
+minimum_component_count: 4)
+soul = Organ.create(name: "soul",
+minimum_component_count: 9)
+spirit = Organ.create(name: "spirit",
+minimum_component_count: 12)
 
 ####COMPONENETS####
 
 # => BIOLOGICAL <= #
-mitochondria = Component.create(name: "Mitochondria", price: 400, missing_error: "Needs more energy")
-nucleus = Component.create(name: "Nucleus")
-blood = Component.create(name: "Blood")
-cell = Component.create(name: "Cell",
-price: 100,
-missing_error: "Needs more cytoplasm")
-#hepatocyte = Component.create(name: "Hepatocyte")
-#neurons = Component.create(name: "neurons")
+mitochondria = Component.create(name: "Mitochondria", price: 100, missing_error: "Needs more energy")
+nucleus = Component.create(name: "Nucleus", price: 50, missing_error: "Missing DNA" )
+blood = Component.create(name: "Blood", price: 100, missing_error: "Too dry to function." )
+cell = Component.create(name: "Cell", price: 100, missing_error: "Needs more cytoplasm.")
+hepatocyte = Component.create(name: "Hepatocytes", price: 150, missing_error: "Unable to perform protein synthesis.")
+neuron = Component.create(name: "Neurons", price: 400, missing_error: "Need a tool to build a network." )
+collagen = Component.create(name: "collagen", price: 700, missing_error: "Wrinkles already appearing" )
+squamous = Component.create(name: "Squamous cells", price: 111,
+missing_error: "Not enough lubrication - excessive frictions is eroding vessels" )
+cones = Component.create(name: "Cone cells", price: 174,
+missing_error: "Everything is in black & white!!! Need colour!!!!" )
+melanin = Component.create(name: "Melanin", price: 352,
+missing_error: "Excessivley prone to sun damage" )
+stereocilia= Component.create(name: "Stereocilia", price: 12.87,
+missing_error: "Unable to process vibrations" )
+gustatory_cells = Component.create(name: "Gustatory Cells", price: 98.87,
+missing_error: "Can't taste anything" )
 
 # => NON-Biological
-fan = Component.create(name: "fan",
-price: 200,
-missing_error: "Smell stuffy in here")
-led = Component.create(name: "l.e.d",
-price: 100,
-missing_error: "Too dark to see")
-anti_freezeer = Component.create(name: "anti freeze")
-batteries = Component.create(name: "batteries")
-timer = Component.create(name: "timer")
-nanobots = Component.create(name: "nanobots")
+fan = Component.create(name: "fan", price: 200, missing_error: "Smell stuffy in here")
+led = Component.create(name: "LED bulbs", price: 100, missing_error: "Too dark to see")
+anti_freeze = Component.create(name: "Anti Freeze", price: 100,
+missing_error: "This organ will be unable to withstand the impact of drinking a slushie")
+batteries = Component.create(name: "Nucleur Batteries", price: 700,
+missing_error: "artificial source of energy needed to power this organ")
+timer = Component.create(name: "Alarm Clock", price: 80, missing_error: "Unable to exit resting stage without artificial interference")
+nanobots = Component.create(name: "nanobots", price: 700, missing_error: "More precise builders needed to implement quantum functionality")
+dehumidifier = Component.create(name: "Nanobots", price: 700, missing_error: "Mold is accumulating at a lethal rate")
+brita_filter = Component.create(name: "Brita Filter", price: 200, missing_error: "Need method of expelling toxins from cytoplasm")
+crazy_glue = Component.create(name: "Crazy Glue", price: 35,
+missing_error: "Things are falling apart.")
+hydraulic_jack = Component.create(name: "Hydraulic Jack", price: 35,
+missing_error: "Need help expanding and contracting")
 
 
 ##requirements
-liver.components << [cell, fan, led]
-# Requirement.create(organ_id: liver.id, component_id: cell.id)
+liver.components << [mitochondria, fan, hepatocyte]
+lung.components << [hydraulic_jack, squamous]
+heart.components << [blood, crazy_glue, hydraulic_jack]
+brain.components << [anti_freeze, neuron, nucleus, timer]
+skin.components << [cell, collagen, brita_filter, melanin]
+eye.components << [brita_filter, led, cones, melanin]
+stomache.components << [dehumidifier, led, anti_freeze]
+
+tongue.components << [gustatory_cells, brita_filter]
+ear.components << [led, stereocilia, fan]
+tooth.components << [crazy_glue]
+esophagus.components << [brita_filter, crazy_glue, blood]
+soul.components << [batteries, timer, nanobots]
+spirit.components << [batteries, timer, nanobots]
+
 
 ## Users ##
+
 eric = User.create(
   username: "daily_showers",
   password: "abc",
@@ -75,5 +112,4 @@ chris = User.create(
 )
 
 ## User_Organs ##
-
 erics_liver = UserOrgan.create(user: eric, organ: liver)
