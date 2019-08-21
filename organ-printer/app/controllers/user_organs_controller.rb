@@ -12,6 +12,7 @@ class UserOrgansController < ApplicationController
   end
 
   def create
+    byebug
     @user_organ = UserOrgan.new(params.require(:user_organ).permit(:organ_id))
     @user_organ.user_id = 1
     selected_components = params[:user_organ][:component_ids]
