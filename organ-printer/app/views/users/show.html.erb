@@ -1,5 +1,7 @@
-<h1><%= "Welcome, #{@user.username}, your balance is $#{@user.balance}" %></h1>
+<h1>What would you like to do today?</h1>
 
-<%= button_to "Build an Organ", "/users/#{@user.id}/user_organs/new", method: :get %>
+<span class="options">
+    <%= button_to "Build an Organ", "/users/#{@user.id}/user_organs/new", method: :get, html: {class: "option"} %>
 
-<%= button_to "View Stock", "/users/#{@user.id}/organs", method: :get %>
+    <%= button_to "View Stock", "/users/#{@user.id}/organs", method: :get, html: {class: "option"} %>
+</span>

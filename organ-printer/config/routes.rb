@@ -3,14 +3,17 @@ Rails.application.routes.draw do
 
   #resources :user_organs, only: [:new, :create]
 
-  resources :users, only: [:show, :create] do
-    resources :user_organs, only: [:index, :show, :new, :create]
+  resources :users, only: [:show, :new, :create, :edit, :update] do
+    resources :user_organs, only: [:index, :new, :create]
   end
+  resources :user_organs, only: [:show, :destroy]
+
+  ## REGISTER ##
   get '/register', to: 'users#new'
-
-  #get '/users/:id/organs', to: 'users#organs', as: 'organs_for_user'
-
+  post '/register', to: 'users#create'
+  ## LOGIN ##
   get "/login", to: 'login#new'
   post "/login", to: 'login#create'
+  delete '/logout', to: 'login#destroy'
 
 end
