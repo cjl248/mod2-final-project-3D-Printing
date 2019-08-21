@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
+  skip_before_action :authorized, only: [:new, :create]
+
   def show
     if @logged_in
-      find_user()
     else
       redirect_to '/login'
     end
@@ -17,17 +18,18 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.update(balance: 500.00)
       session["user_id"] = @user.id
-      flash[:messages] = "Registered #{@user.username}"
+      flash[:message] = "Registered #{@user.username}"
       redirect_to @user
     else
-      flash[:messages] = "Inapropriate Registration Info"
+      flash[:message] = "Inapropriate Registration Info"
       redirect_to new_user_path
     end
   end
 
-  def organs
-    find_user
-    @organs = @user.organs
+  def store
+    @balance = @current_user.balance - 100.0
+    @current_user.update(balance: @balance)
+    redirect_to user_user_organs_path(@current_user)
   end
 
   private
