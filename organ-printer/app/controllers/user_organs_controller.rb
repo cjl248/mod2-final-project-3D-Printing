@@ -28,7 +28,6 @@ class UserOrgansController < ApplicationController
     if flash[:error]
       @organs = Organ.all
       @components = Component.all
-
       redirect_to new_user_user_organ_path
     else
       @user_organ.save
@@ -56,7 +55,5 @@ class UserOrgansController < ApplicationController
     @user_organ.destroy
     redirect_to @current_user
   end
-
-
 
 end

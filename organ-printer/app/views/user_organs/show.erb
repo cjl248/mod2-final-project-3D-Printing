@@ -1,10 +1,9 @@
 <h1>Current Selling Price of This <%= @user_organ.organ.name %></h1>
+<h2> $<%= @price %></h2>
 
-<h2>$<%= @price %></h2>
-
-<%= form_tag @user_organ, method: :delete do %>
-  <%= hidden_field_tag :price, @price %>
-  <%= submit_tag "Sell" %>
+<%= form_tag user_organ_path(@user_organ), method: :delete do %>
+<%= hidden_field_tag :price, @price %>
+<%= submit_tag "Sell" %>
 <% end %>
 
-<%= button_to "Store for $100", '/store', method: :put %>
+<%= button_to "Store for $50", '/store', method: :put %>

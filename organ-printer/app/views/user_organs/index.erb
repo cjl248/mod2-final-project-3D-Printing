@@ -1,13 +1,12 @@
 <h1><%= "Hi, #{@current_user.username}" %></h1>
 <h2><%= "Your organ stock includes: " %></h2>
-
 <ol>
 <% @user_organs.each do |user_organ| %>
-    <li>
-      <%= user_organ.organ.name %><br>
-      <%= button_to "Check Current Market Price (cost to check: $100, fiber optic warp speed transmission overhead)",
-      "/user_organs/#{user_organ.id}/check",
-      method: :put  %>
-    </li>
+  <li>
+    <%= user_organ.organ.name %><br>
+    <%= button_to "Check Current Market Price (Cost to check: $100, fibe-optic warp speed transmission overhead)",
+    "/user_organs/#{user_organ.id}/check",
+    method: :put%>
+  </li>
 <% end %>
 </ol>
