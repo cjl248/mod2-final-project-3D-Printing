@@ -16,10 +16,10 @@
 
   <% @components.each do |component| %>
   <br>
-    <%= label_tag component.name %>
+    <%= label_tag "#{component.name} - $#{component.price}" %>
     <%= check_box_tag "components[]", component.id, @selected_components.include?(component.id.to_s) %>
   <% end %>
-
+  <br>
   <%= f.submit %>
 
 <% end %>

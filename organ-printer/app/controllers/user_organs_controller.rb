@@ -1,8 +1,7 @@
 class UserOrgansController < ApplicationController
 
   def index
-    @user = User.find(params[:id])
-    @organs = @user.organs
+    @user_organs = @current_user.user_organs
   end
 
   def new
@@ -13,14 +12,13 @@ class UserOrgansController < ApplicationController
   end
 
   def create
-    
+
     @user_organ = UserOrgan.new(params.require(:user_organ).permit(:organ_id))
-    #need to stop hard coding this eventually
-    @user_organ.user_id = 1
+    @user_organ.user_id = @user_id
     @selected_components = params[:components]
     flash[:array] = @selected_components
     flash[:user_org_hash] = @user_organ.attributes
-    
+
     if @user_organ.compare_ids(@selected_components) != nil
       flash[:error] = @user_organ.compare_ids(@selected_components)
     elsif @user_organ.check_minimum(@selected_components)
@@ -30,19 +28,32 @@ class UserOrgansController < ApplicationController
     if flash[:error]
       @organs = Organ.all
       @components = Component.all
-      # consider render :new versus redirect_to new_user_organ_path
-      #also need to figure out how to keep the same boxes ticked even after the error pops up
-      # render :new
-      redirect_to new_user_organ_path
+      redirect_to new_user_user_organ_path
     else
       @user_organ.save
-      #should eventually redirect to organ show page, with the randomely generated price
       redirect_to @user_organ
     end
   end
 
   def show
     @user_organ = UserOrgan.find(params[:id])
+    @price = @user_organ.organ.random_price
+  end
+
+  def check
+    @user_organ = UserOrgan.find(params[:id])
+    @balance = @current_user.balance - 100.0
+    @current_user.update(balance: @balance)
+    redirect_to @user_organ
+  end
+
+  def destroy
+    @price = params[:price].to_f
+    @new_balance = @current_user.balance + @price
+    @current_user.update(balance: @new_balance)
+    @user_organ = UserOrgan.find(params[:id])
+    @user_organ.destroy
+    redirect_to @current_user
   end
 
 end

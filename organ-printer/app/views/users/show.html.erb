@@ -1,7 +1,8 @@
 <h1>What would you like to do today?</h1>
 
 <span class="options">
-    <%= button_to "Build an Organ", "/users/#{@user.id}/user_organs/new", method: :get, html: {class: "option"} %>
+    <%= button_to "Build an Organ", "/users/#{@user_id}/user_organs/new", method: :get, html: {class: "option"} %>
 
-    <%= button_to "View Stock", "/users/#{@user.id}/organs", method: :get, html: {class: "option"} %>
+    <%= button_to "View Stock", "/users/#{@user_id}/user_organs", method: :get, html: {class: "option"} %>
+
 </span>

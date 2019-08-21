@@ -15,7 +15,7 @@ class UserOrgan < ApplicationRecord
   def compare_ids(checked_ids)
     required_ids = self.organ.components.map {|component| component.id}
     required_ids.each do |id|
-      if !checked_ids.include?(id.to_s)
+      if !checked_ids.try(:include?, id.to_s)
         return Component.find(id).missing_error
       end
     end
