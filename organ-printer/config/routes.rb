@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   end
   resources :user_organs, only: [:show, :destroy]
 
-  get 'welcome', to: 'login#new'
-  post 'login', to: 'login#create'
-
+  ## REGISTER ##
+  get '/register', to: 'users#new'
+  post '/register', to: 'users#create'
+  ## LOGIN ##
+  get "/login", to: 'login#new'
+  post "/login", to: 'login#create'
+  delete '/logout', to: 'login#destroy'
+  
 end

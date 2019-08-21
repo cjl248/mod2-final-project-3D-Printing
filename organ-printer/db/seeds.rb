@@ -99,7 +99,17 @@ spirit.components << [batteries, timer, nanobots]
 
 
 ## Users ##
-eric = User.create(username: "daily_showers", balance: 500.00)
+
+eric = User.create(
+  username: "daily_showers",
+  password: "abc",
+  balance: 500.01
+)
+chris = User.create(
+  username: "chris",
+  password: "abc",
+  balance: 500.01
+)
 
 ## User_Organs ##
 erics_liver = UserOrgan.create(user: eric, organ: liver)

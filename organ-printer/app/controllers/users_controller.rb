@@ -1,19 +1,27 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    if @logged_in
+      find_user()
+    else
+      redirect_to '/login'
+    end
   end
 
   def new
-    @user = User.new
+    @user = User.new()
   end
 
   def create
     @user = User.create(user_params)
     if @user.valid?
-
+      @user.update(balance: 500.00)
+      session["user_id"] = @user.id
+      flash[:messages] = "Registered #{@user.username}"
+      redirect_to @user
     else
-      
+      flash[:messages] = "Inapropriate Registration Info"
+      redirect_to new_user_path
     end
   end
 

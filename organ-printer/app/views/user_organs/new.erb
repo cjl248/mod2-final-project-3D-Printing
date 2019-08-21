@@ -7,7 +7,7 @@
 
 <h3>Print a new organ by selecting the correct combination of components</h3>
 
-<%= form_for @user_organ do |f| %>
+<%= form_for @user_organ, url: {action: "create"} do |f| %>
 
   <%= f.label :organ_id %>
   <%= f.collection_select :organ_id, @organs, :id, :name %><br>

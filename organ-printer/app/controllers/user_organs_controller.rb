@@ -1,5 +1,10 @@
 class UserOrgansController < ApplicationController
 
+  def index
+    @user = User.find(params[:id])
+    @organs = @user.organs
+  end
+
   def new
     @user_organ = UserOrgan.new(flash[:user_org_hash])
     @organs = Organ.all
@@ -8,18 +13,18 @@ class UserOrgansController < ApplicationController
   end
 
   def create
-
+    
     @user_organ = UserOrgan.new(params.require(:user_organ).permit(:organ_id))
     #need to stop hard coding this eventually
     @user_organ.user_id = 1
-    # @user_organ.component_ids = params[:user_organ][:component_ids]
     @selected_components = params[:components]
     flash[:array] = @selected_components
     flash[:user_org_hash] = @user_organ.attributes
-    if @user_organ.check_minimum(@selected_components)
-      flash[:error] = @user_organ.check_minimum(@selected_components)
-    elsif @user_organ.compare_ids(@selected_components) != nil
+    
+    if @user_organ.compare_ids(@selected_components) != nil
       flash[:error] = @user_organ.compare_ids(@selected_components)
+    elsif @user_organ.check_minimum(@selected_components)
+      flash[:error] = @user_organ.check_minimum(@selected_components)
     end
 
     if flash[:error]
