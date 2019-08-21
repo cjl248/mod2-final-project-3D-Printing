@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  resources :user_organs
-  resources :users
-  resources :requirements
-  resources :components
-  resources :organs
+
+  resources :users, only: [:show, :new, :create, :edit, :update] do
+    resources :user_organs, only: [:index, :new, :create]
+  end
+  resources :user_organs, only: [:show, :destroy]
 
   get 'welcome', to: 'login#new'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post 'login', to: 'login#create'
 
-  get '/users/:id/organs', to: 'users#organs', as: 'organs_for_user'
 end
