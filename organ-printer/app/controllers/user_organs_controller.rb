@@ -31,6 +31,8 @@ class UserOrgansController < ApplicationController
       redirect_to new_user_user_organ_path
     else
       @user_organ.save
+      @new_balance = @user_organ.user.balance - @selected_components.map{|t| t.to_f}.sum
+      @user_organ.user.update(balance: @new_balance)
       redirect_to @user_organ
     end
   end

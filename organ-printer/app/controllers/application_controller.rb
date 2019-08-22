@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
     @user_id = session["user_id"]
     @logged_in = !!@user_id
     if @logged_in
-      @current_user = User.find(@user_id)
+      @current_user = User.find_by(id: @user_id)
+      if !@current_user
+        session.clear
+      end
     end
   end
 
@@ -15,6 +18,10 @@ class ApplicationController < ActionController::Base
     unless @logged_in
       flash[:message] = "Please login to view this page"
       return redirect_to login_path
+    end
+
+    if @current_user.balance < 0
+      flash[:warning] = "The black-market mafia is hot on your trail ... get out of debt ASAP or risk being shot "
     end
   end
 
