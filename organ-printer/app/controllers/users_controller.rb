@@ -25,6 +25,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    render 'edit'
+  end
+
+  def update
+    @current_user.update(user_params)
+    redirect_to @current_user
+  end
+
   def store
     @balance = @current_user.balance - 100.0
     @current_user.update(balance: @balance)

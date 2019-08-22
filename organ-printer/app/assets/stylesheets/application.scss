@@ -15,11 +15,16 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+body {
+  background-image: image-url("lab.jpg");
+  color: lightgreen;
+}
+
 // NAVIGATION BAR //
 
 .navbar{
-  color: green;
-  border: green solid 2px;
+  color: lightgreen;
+  border: lightgreen solid 2px;
 
   justify-content: space-evenly;
 
@@ -37,10 +42,12 @@
 
 // USER_ORGAN NEW PAGE
 .container{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  color: lightgreen;
 }
 
 label {
@@ -64,5 +71,16 @@ label {
 marquee {
   font-size: 18pt;
   text-transform: uppercase;
-  
+
+}
+
+.user_edit_form {
+  padding-top: 30px;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+#login_title {
+  font-size: 20pt;
 }
