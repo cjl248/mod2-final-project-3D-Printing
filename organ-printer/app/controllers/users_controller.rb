@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
-  skip_before_action :authorized, only: [:new, :create]
-
   def show
     if @logged_in
     else

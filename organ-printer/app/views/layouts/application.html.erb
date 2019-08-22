@@ -4,7 +4,6 @@
     <title>OrganPrinter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,29 +12,30 @@
 
     <header>
 
-      <nav class="nav">
-      <% if @logged_in %>
+      <nav class="navbar">
 
-        <h2>Logged in as <%= @current_user.username %></h2>
-        <h2>Remaining Balance: $<%= @current_user.balance %></h2>
-        <%= button_to "Logout", "/logout", method: :delete %>
-        <%= button_to 'Profile', @current_user, method: :get %>
+        <h4 class="nav_bar_element">OrganPrinter(TM)</h4>
+        <% if @logged_in %>
+          <h4 class="nav_bar_element">Logged in as <%= @current_user.username %></h4>
+          <h4 class="nav_bar_element">Remaining Balance: $<%= @current_user.balance %></h4>
+          <%= button_to "Logout", "/logout", method: :delete, class:"btn, btn-success" %>
+          <%= button_to 'Profile', @current_user, method: :get, class:"btn, btn-success" %>
+        <% else %>
+          <%= button_to "Login", "/login", method: :get, class:"btn, btn-success" %>
+          <%= button_to "Register", new_user_path, method: :get, class:"btn, btn-success" %>
+        <% end %>
 
-      <% else %>
-        <%= button_to "Login", "/login", method: :get %>
-        <%= button_to "Register", new_user_path, method: :get %>
-
-      <% end %>
       </nav>
 
-      <!-- code below is broken-->
       <% if !!flash[:message] %>
         <p><%= flash[:message] %></p>
       <% end %>
 
     </header>
+      <div class="yield">
 
-    <%= yield %>
+        <%= yield %>
 
+      </div>
   </body>
 </html>

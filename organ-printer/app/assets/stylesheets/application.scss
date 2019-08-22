@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+// NAVIGATION BAR //
+
+.navbar{
+  color: green;
+  border: green solid 2px;
+
+  justify-content: space-evenly;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.nav_bar_element {
+  margin-bottom: 0;
+}
+
+// USER_ORGAN NEW PAGE
+.container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+label {
+  font-size: 1.2em;
+
+  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.col-xs-1 {
+  margin-bottom: 2rem;
+}
+marquee {
+  font-size: 18pt;
+  text-transform: uppercase;
+  
+}

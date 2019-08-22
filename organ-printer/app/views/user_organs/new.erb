@@ -1,25 +1,38 @@
 <h1>Organ Printer</h1>
 
 <% if flash[:error] != nil %>
-    <font color="RED"><marquee BGCOLOR=YELLOW><%= flash[:error] %></marquee></font>
+    <font color="RED">
+      <marquee BGCOLOR=YELLOW scrollamount="20">
+        <i>========= |<%= flash[:error] %>| =========</i>
+      </marquee>
+    </font>
 <% end %>
 
 
 <h3>Print a new organ by selecting the correct combination of components</h3>
 
 <%= form_for @user_organ, url: {action: "create"} do |f| %>
-
   <%= f.label :organ_id %>
   <%= f.collection_select :organ_id, @organs, :id, :name %><br>
 
-  <%= f.label "Components:" %>
+<div class="container-main container-fluid">
 
-  <% @components.each do |component| %>
-  <br>
-    <%= label_tag "#{component.name} - $#{component.price}" %>
-    <%= check_box_tag "components[]", component.id, @selected_components.include?(component.id.to_s) %>
-  <% end %>
-  <br>
-  <%= f.submit %>
+  <div class="row">
+    <%= f.label "Components:" %>
+  </div>
 
-<% end %>
+  <div class="row">
+    <div class="col-xs-1">
+      <% @components.each do |component| %>
+      <%= label_tag "#{component.name} - $#{component.price}" %>
+      <%= check_box_tag "components[]", component.id, @selected_components.include?(component.id.to_s) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.submit %>
+  </div>
+    <% end %>
+
+</div>
