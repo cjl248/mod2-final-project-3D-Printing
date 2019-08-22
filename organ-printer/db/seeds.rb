@@ -17,31 +17,44 @@ Requirement.destroy_all
 #### ORGANS ####
 #(held over ice...)#
 liver = Organ.create(name: "Liver",
-minimum_component_count: 5)
+minimum_component_count: 5,
+image: "https://scotthull.files.wordpress.com/2007/01/hull-pictures-002.jpg")
 lung = Organ.create(name: "Lung",
-minimum_component_count: 3)
+minimum_component_count: 3,
+image: "http://3.bp.blogspot.com/-P4Pini1ZNiE/UGDqjFwnGNI/AAAAAAAAAA8/oFcqC76NreI/s1600/cow+lungs.jpg")
 heart = Organ.create(name: "Heart",
-minimum_component_count: 3)
+minimum_component_count: 3,
+image: "https://66.media.tumblr.com/088d0a343b95a732b8183eacc2daa020/tumblr_n17dkjrn3e1ramatho2_500.jpg")
 brain = Organ.create(name: "Brain",
-minimum_component_count: 8)
+minimum_component_count: 8,
+image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREUfAhLf5atqGNZZSynu8Sn_SQUOA5cX8AlmQRlo04msbH6n1g")
 skin = Organ.create(name: "Skin",
-minimum_component_count: 6)
+minimum_component_count: 6,
+image: "http://cdn.shopify.com/s/files/1/0414/6449/files/forgacs_cultured_leather_large.jpg?v=1483754456")
 eye = Organ.create(name: "Eye",
-minimum_component_count: 7)
-stomache = Organ.create(name: "Stomach",
-minimum_component_count: 3)
+minimum_component_count: 7,
+image: "https://blog.nationalgeographic.org/wp-content/uploads/2012/10/giant-eyeball1.jpg")
+stomach = Organ.create(name: "Stomach",
+minimum_component_count: 3,
+image: "https://tse4.mm.bing.net/th?id=OIP.oR29-vd-O9nunm6Vu5qErgHaE8&pid=Api&P=0&w=300&h=300")
 tongue = Organ.create(name: "Tongue",
-minimum_component_count: 3)
+minimum_component_count: 3,
+image: "https://static.turbosquid.com/Preview/2014/07/09__22_36_02/Alternate2_View.jpged9f722d-a68c-41f4-ad63-a6efbc0456a2Original.jpg")
 ear = Organ.create(name: "ear",
-minimum_component_count: 8)
+minimum_component_count: 8,
+image: "https://cdn1.alphr.com/sites/alphr/files/2016/02/ear.jpg")
 tooth = Organ.create(name: "tooth",
-minimum_component_count: 2)
+minimum_component_count: 2,
+image:"https://www.chichesterinc.com/Images2016/174-360-Lg.jpg")
 esophagus = Organ.create(name: "esophagus",
-minimum_component_count: 4)
+minimum_component_count: 4,
+image: "https://cbsnews1.cbsistatic.com/hub/i/r/2011/07/08/075b766e-a644-11e2-a3f0-029118418759/thumbnail/1200x630/acac6f50242330b4d9d92749fd34bd58/windpipe-2.jpg")
 soul = Organ.create(name: "soul",
-minimum_component_count: 9)
+minimum_component_count: 9,
+image: "https://cdn.newspunch.com/wp-content/uploads/2016/01/science-soul.jpg")
 spirit = Organ.create(name: "spirit",
-minimum_component_count: 12)
+minimum_component_count: 12,
+image: "https://thepassionists.org/uploads/post/image/1468/iStock_49594202_SMALL.jpg")
 
 ####COMPONENETS####
 
@@ -88,7 +101,7 @@ heart.components << [blood, crazy_glue, hydraulic_jack]
 brain.components << [anti_freeze, neuron, nucleus, timer]
 skin.components << [cell, collagen, brita_filter, melanin]
 eye.components << [brita_filter, led, cones, melanin]
-stomache.components << [dehumidifier, led, anti_freeze]
+stomach.components << [dehumidifier, led, anti_freeze]
 
 tongue.components << [gustatory_cells, brita_filter]
 ear.components << [led, stereocilia, fan]
@@ -113,3 +126,11 @@ chris = User.create(
 
 ## User_Organs ##
 erics_liver = UserOrgan.create(user: eric, organ: liver)
+erics_tooth = UserOrgan.create(user: eric, organ: tooth)
+UserOrgan.create(user: eric, organ: heart)
+eric.user_organs.create(organ:brain)
+eric.user_organs.create(organ:soul)
+eric.user_organs.create(organ:spirit)
+eric.user_organs.create(organ:eye)
+eric.user_organs.create(organ:stomach)
+eric.user_organs.create(organ:ear)

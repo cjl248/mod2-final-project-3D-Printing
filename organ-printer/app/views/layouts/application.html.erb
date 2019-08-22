@@ -31,6 +31,14 @@
         <p><%= flash[:message] %></p>
       <% end %>
 
+      <% if !!flash[:warning] %>
+          <font color="YELLOW">
+            <marquee BGCOLOR="RED" scrollamount="15" behavior="alternate" style="padding-top:15px;padding-bottom:15px;">
+            <i>========= |<%= flash[:warning] %>| =========</i>
+            </marquee>
+        </font>
+      <% end %>
+
     </header>
       <div class="yield">
 
