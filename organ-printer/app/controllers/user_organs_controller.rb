@@ -38,6 +38,7 @@ class UserOrgansController < ApplicationController
   end
 
   def show
+    flash[:cant_leave] = "freeze page"
     @user_organ = UserOrgan.find(params[:id])
     @price = @user_organ.organ.random_price.round(2)
   end

@@ -12,6 +12,15 @@
 
     <header>
 
+      <% if flash[:cant_leave] %>
+        <nav class="navbar">
+
+          <h4 class="nav_bar_element">OrganPrinter(TM)</h4>
+          <h4 class="nav_bar_element">Logged in as <%= @current_user.username %></h4>
+          <h4 class="nav_bar_element">Remaining Balance: $<%= @current_user.balance %></h4>
+
+        </nav>
+      <% else %>
       <nav class="navbar">
 
         <h4 class="nav_bar_element">OrganPrinter(TM)</h4>
@@ -28,6 +37,7 @@
         <% end %>
 
       </nav>
+      <% end %>
 
       <% if !!flash[:message] %>
         <h5 style="color: orangered;" class="text-center">========= |<%= flash[:message] %>| =========</h5>
