@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
 
     if @current_user.balance < 0
       flash[:warning] = "The black-market mafia is hot on your trail ... get out of debt ASAP or risk being shot "
+    else
+      flash[:warning] = nil
     end
   end
 
