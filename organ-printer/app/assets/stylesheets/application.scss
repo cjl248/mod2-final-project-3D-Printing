@@ -71,7 +71,6 @@ label {
 marquee {
   font-size: 18pt;
   text-transform: uppercase;
-
 }
 
 .user_edit_form {
@@ -83,4 +82,18 @@ marquee {
 
 #login_title {
   font-size: 20pt;
+}
+
+.btn, .btn-success {
+  background-color: green;
+  border: 3px ridge lightgreen;
+  border-radius: 6px;
+}
+.d-flex {
+  border: 1px solid lightgreen
+}
+.yield {
+  background-position-y: center;
+  background-position-x: center;
+  text-align: center;
 }

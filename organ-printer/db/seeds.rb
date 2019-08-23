@@ -85,8 +85,8 @@ missing_error: "This organ will be unable to withstand the impact of drinking a 
 batteries = Component.create(name: "Nucleur Batteries", price: 700,
 missing_error: "artificial source of energy needed to power this organ")
 timer = Component.create(name: "Alarm Clock", price: 80, missing_error: "Unable to exit resting stage without artificial interference")
-nanobots = Component.create(name: "nanobots", price: 700, missing_error: "More precise builders needed to implement quantum functionality")
-dehumidifier = Component.create(name: "dehumidifier", price: 700, missing_error: "Mold is accumulating at a lethal rate")
+nanobots = Component.create(name: "Nanobots", price: 700, missing_error: "More precise builders needed to implement quantum functionality")
+dehumidifier = Component.create(name: "Dehumidifier", price: 700, missing_error: "Mold is accumulating at a lethal rate")
 brita_filter = Component.create(name: "Brita Filter", price: 200, missing_error: "Need method of expelling toxins from cytoplasm")
 crazy_glue = Component.create(name: "Crazy Glue", price: 35,
 missing_error: "Things are falling apart.")

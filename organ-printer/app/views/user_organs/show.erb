@@ -1,13 +1,18 @@
-<h1>Current Selling Price of This <%= @user_organ.organ.name %></h1>
-<h2> $<%= @price %></h2>
 
-<% if @user_organ.organ.try(:image) %>
-<%= image_tag @user_organ.organ.image, style:"height:400px;width:500px;" %>
-<% end %>
+<!-- <div class="container center-text"> -->
 
-<%= form_tag user_organ_path(@user_organ), method: :delete do %>
-<%= hidden_field_tag :price, @price %>
-<%= submit_tag "Sell" %>
-<% end %>
+  <h1>Current Selling Price of This <%= @user_organ.organ.name %></h1>
+  <h2> $<%= @price %></h2>
 
-<%= button_to "Store for $100", '/store', method: :put %>
+  <% if @user_organ.organ.try(:image) %>
+    <%= image_tag @user_organ.organ.image, style:"height:400px;width:500px;" %>
+  <% end %>
+
+  <%= form_tag user_organ_path(@user_organ), method: :delete do %>
+    <%= hidden_field_tag :price, @price %><br>
+    <%= submit_tag "Sell" %><br>
+  <% end %>
+  <br>
+  <%= button_to "Store for $100", '/store', method: :put %>
+
+<!-- </div> -->
