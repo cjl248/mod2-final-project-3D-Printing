@@ -21,22 +21,24 @@
 
         </nav>
       <% else %>
-      <nav class="navbar">
+      
+        <nav class="navbar">
 
-        <h4 class="nav_bar_element">OrganPrinter(TM)</h4>
-        <% if @logged_in %>
-          <h4 class="nav_bar_element">Logged in as <%= @current_user.username %></h4>
-          <h4 class="nav_bar_element">Remaining Balance: $<%= @current_user.balance %></h4>
-          <%= button_to 'Home', @current_user, method: :get, class:"btn, btn-success" %>
-          <%= button_to 'Edit Account', edit_user_path(@current_user), method: :get, class:"btn, btn-success" %>
-          <%= button_to "Logout", "/logout", method: :delete, class:"btn, btn-success" %>
+          <h4 class="nav_bar_element">OrganPrinter(TM)</h4>
+            <% if @logged_in %>
+              <h4 class="nav_bar_element">Logged in as <%= @current_user.username %></h4>
+              <h4 class="nav_bar_element">Remaining Balance: $<%= @current_user.balance %></h4>
+              <%= button_to 'Home', @current_user, method: :get, class:"btn, btn-success" %>
+              <%= button_to 'Edit Account', edit_user_path(@current_user), method: :get, class:"btn, btn-success" %>
+              <%= button_to "Logout", "/logout", method: :delete, class:"btn, btn-success" %>
 
-        <% else %>
-          <%= button_to "Login", "/login", method: :get, class:"btn, btn-success" %>
-          <%= button_to "Register", new_user_path, method: :get, class:"btn, btn-success" %>
-        <% end %>
+            <% else %>
+              <%= button_to "Login", "/login", method: :get, class:"btn, btn-success" %>
+              <%= button_to "Register", new_user_path, method: :get, class:"btn, btn-success" %>
+            <% end %>
 
-      </nav>
+        </nav>
+      
       <% end %>
 
       <% if !!flash[:message] %>
