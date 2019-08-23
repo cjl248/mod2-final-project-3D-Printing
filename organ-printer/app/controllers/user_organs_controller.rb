@@ -39,7 +39,7 @@ class UserOrgansController < ApplicationController
 
   def show
     @user_organ = UserOrgan.find(params[:id])
-    @price = @user_organ.organ.random_price
+    @price = @user_organ.organ.random_price.round(2)
   end
 
   def check

@@ -1,14 +1,15 @@
 <!-- USER NEW PAGE -->
 
-<h1>Registration</h1>
-<%= form_for @user do |f| %>
+<h1 class="container text-center">Registration</h1>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class="container text-center">
+  <%= form_for @user do |f| %>
+    <p><%= f.label :username %></p>
+    <%= f.text_field :username %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit %>
-
-<% end %>
+    <p><%= f.label :password %></p>
+    <%= f.password_field :password %>
+    <br><br>
+    <%= f.submit "Register" %>
+  <% end %>
+</div>

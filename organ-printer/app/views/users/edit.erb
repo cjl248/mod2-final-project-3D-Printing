@@ -4,8 +4,10 @@
   <%= form_for @current_user do |f| %>
     <h5 style="color: lightgreen;">Username: </h5><%= f.text_field :username, :value => "" %>
     <br><br>
-    <h5 style="color: lightgreen; weight: bold;">Password: </h5><%= f.password_field :password_digest %>
+
+    <h5 style="color: lightgreen;">Password: </h5><%= f.password_field :password_digest %>
     <br><br>
+
     <%= f.submit "Update Account", class:"btn, btn-success" %>
   <% end %>
 

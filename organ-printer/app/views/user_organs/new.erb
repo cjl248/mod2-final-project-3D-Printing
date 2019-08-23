@@ -1,4 +1,4 @@
-<h1>Organ Printer</h1>
+<h1 style="margin-left: 15px;">Organ Printer</h1>
 
 <% if flash[:error] != nil %>
     <font color="RED">
@@ -9,7 +9,7 @@
 <% end %>
 
 
-<h3>Print a new organ by selecting the correct combination of components</h3>
+<h3 style="margin-left: 15px;">Print a new organ by selecting the correct combination of components</h3>
 
 <%= form_for @user_organ, url: {action: "create"} do |f| %>
   <%= f.label :organ_id %>
@@ -24,8 +24,8 @@
   <div class="row">
     <div class="col-xs-1">
       <% @components.each do |component| %>
-      <%= label_tag "#{component.name} - $#{component.price}" %>
-      <%= check_box_tag "components[]", component.id, @selected_components.include?(component.id.to_s) %>
+        <%= label_tag "| #{component.name} - $#{component.price} ->" %>
+        <%= check_box_tag "components[]", component.id, @selected_components.include?(component.id.to_s) %>
       <% end %>
     </div>
   </div>

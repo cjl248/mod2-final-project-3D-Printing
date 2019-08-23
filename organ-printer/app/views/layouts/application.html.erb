@@ -30,7 +30,7 @@
       </nav>
 
       <% if !!flash[:message] %>
-        <p><%= flash[:message] %></p>
+        <h5 style="color: orangered;" class="text-center">========= |<%= flash[:message] %>| =========</h5>
       <% end %>
 
       <% if !!flash[:warning] %>
@@ -42,7 +42,7 @@
       <% end %>
 
     </header>
-      <div class="yield">
+      <div class="yield container center-text">
 
         <%= yield %>
 
